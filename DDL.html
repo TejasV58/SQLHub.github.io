@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>SQLHub - DDL	</title>
+
+		<!-- logo -->
+	    <link rel="shortcut icon" type="image/png" href="dbimg.png">
+
+		<!-- Stylesheet -->
+	    <link rel="stylesheet" href="stylesheet.css">
+
+	    <!-- fonts -->
+	    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans&family=Roboto:wght@500&display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="navbar" id="top">
+			<img src="dbimg.png" alt="" class="logo" height="50px" width="50px" class="navelements">
+			<ul class="topics">
+				<a href="DML.html"><li class="navelements">DML</li></a>
+				<a href="#"><li class="navelements active">DDL</li></a>
+				<a href="index.html"><li class="navelements">Home</li></a>
+			</ul>
+		</div>
+		<div class="main-page">
+			<div class="subtopics">
+				<ul>
+					<a href="#DDL"><li class="subtopic">DDL DEFINITION</li></a>
+					<a href="#commands"><li class="subtopic">DDL COMMANDS </li></a>
+					<a href="#create"><li class="subtopic">CREATE command</li></a>
+					<a href="#drop"><li class="subtopic">DROP command</li></a>
+					<a href="#truncate"><li class="subtopic">TRUNCATE command</li></a>
+					<a href="#Alter"><li class="subtopic">ALTER command</li></a>
+					
+					
+				</ul>
+			</div>
+			
+			<div class="contents">	
+				<h1 class="heading3" id=DDL>DATA DEFINTION LANGUAGE </h1>
+				<div class="text-content">
+						DDL or Data Definition Language actually consists of the SQL commands that can be used to define the database schema. It simply deals with descriptions of the database schema and is used to create and modify the structure of database objects in the database.
+						For example, DDL commands can be used to add, remove, or modify tables within a database. DDLs used in database applications are considered a subset of SQL, the Structured Query Language. However, a DDL may also define other types of data, such as XML.	
+						<br><br>
+						Here are some commands that come under DDL:
+						<ul>
+							<li class="list-items">CREATE</li>
+							<li class="list-items">ALTER</li>
+							<li class="list-items">DROP</li>
+							<li class="list-items">TRUNCATE</li>
+						</ul>
+						<br>
+						<h1 class="heading4" id="commands">DDL Commands</h1>
+						<hr>
+
+						<h2 class="heading5" id="create">1.CREATE</h2>	
+						<p class="text"> To store the data we need a table to do that. The CREATE TABLE statement is used to create a table in SQL. We know that a table comprises of rows and columns. So while creating tables we have to provide all the information to SQL about the names of the columns, type of data to be stored in columns, size of the data etc. Let us now dive into details on how to use CREATE TABLE statement to create tables in SQL.</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									CREATE TABLE table1( <br>
+								&emsp;&emsp;column1 data_type(size), <br>
+								&emsp;&emsp;column2 data_type(size),  <br>
+								&emsp;&emsp;column3 data_type(size),  <br>
+								&emsp;&emsp;....);
+									<br>
+							</div>
+							<p class="text">Where,<br>
+									<b>table_name :</b>  name of the table.  <br>
+									<b>column1 :</b> name of the first column.  <br>
+									<b>data_type :</b> Type of data we want to store in the particular column.   <br>
+									            	For example,int for integer data.  <br>
+									<b>size :</b> Size of the data we can store in a particular column. For example if for  <br>
+									a column we specify the data_type as int and size as 10 then this column can store an integer  <br>
+									number of maximum 10 digits.  <br>
+							</p> 
+						</div>
+
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								CREATE TABLE Students(	<br>
+									&emsp;&emsp; 	ROLL_NO number(3),	<br>
+									&emsp;&emsp;  NAME varchar(20),	<br>
+									&emsp;&emsp; 	SUBJECT varchar(20));	<br>
+							</div>
+							<p class="text">
+								This query will create a table named Students with three columns, ROLL_NO, NAME and SUBJECT.
+								<br> 
+								The ROLL_NO field is of type number and can store an integer number of size 3. The next two columns NAME and SUBJECT are of type varchar and can store characters and the size 20 specifies that these two fields can hold maximum of 20 characters. If the characters are more than 20 then it will show an error.
+							</p>
+						</div>			
+
+
+						<br><hr><br>
+
+
+						<h2 class="heading5" id="drop">2.DROP</h2>	
+						<p class="text">
+							By the use of this command, the users can delete an index, table or view. A component from a relational database management system can be removed by a DROP statement in SQL.  There are many systems that allow the DROP and some other Data Definition Language commands for occurring inside a transaction and then it can be rolled back.
+							The object will not be available for use once the DROP statement is executed.
+					    </p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									DROP object object_name;<br>
+							</div>
+						</div>
+
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								DROP TABLE table_name;
+							</div>
+							<p class="text"><b>table_name :</b> Name of the table to be deleted.</p>	
+						</div>
+
+						<br><hr><br>
+
+
+						<h2 class="heading5" id="truncate">3.TRUNCATE</h2>	
+						<p class="text">By using the Truncate command, the users can remove the table content, but the structure of the table is kept. In simple language, it removes all the records from the table structure. The users can’t remove data partially through this command. In addition to this, every space allocated for the data is removed by Truncate command.
+							<br><br>
+						The TRUNCATE TABLE mytable statement is logically (though not physically) equivalent to the DELETE FROM mytable statement (without a WHERE clause).</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									TRUNCATE TABLE  table_name;
+									<br>
+							</div>
+							<p class="text">
+								table_name: Name of the table to be truncated.
+							</p> 
+						</div>
+
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								TRUNCATE TABLE Student_details;
+							</div>
+							<br>
+							<p class="text">Truncate is normally ultra-fast and its ideal for deleting data from a temporary table.
+								Truncate preserves the structure of the table for future use, unlike drop table where the table is deleted with its full structure.
+								Table or Database deletion using DROP statement cannot be rolled back, so it must be used wisely.
+								<br><br>After running the above query Student_details table will be truncated, i.e, the data will be deleted but the structure will remain in the memory for further operations.
+							</p>
+						</div>
+
+						
+						<br><hr><br>
+
+
+						<h2 class="heading5" id="Alter">4.ALTER</h2>	
+						<p class="text">An existing database object can be modified by the ALTER statement. Using this command, the users can add up some additional column and drop existing columns. Additionally, the data type of columns involved in a database table can be changed by the ALTER command.
+						<br><br>
+
+						ALTER command is used for altering the table structure, such as,
+						</p>
+						<ul>
+							<li class="list-items">to add a column to existing table</li>
+							<li class="list-items">to rename any existing column</li>
+							<li class="list-items">to change datatype of any column or to modify its size.</li>
+							<li class="list-items">to drop a column from the table.</li>
+						</ul>
+
+						<br><hr><br>
+
+
+						<h2 class="heading7">Add a new column</h2><br>
+
+						<p class="text">Using ALTER command we can add a column to any existing table</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									ALTER TABLE table_name
+								ADD (Column_name datatype);	<br>
+									
+							</div>
+						</div>
+
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								ALTER TABLE student ADD(<br>
+								&emsp;&emsp;address VARCHAR(200));<br>
+							</div>
+
+							<p class="text">The above command will add a new column address to the table student, which will hold data of type varchar which is nothing but string, of length 200.
+							</p>
+						</div>
+
+						<br><hr><br>
+
+
+						<h2 class="heading7">Add multiple new Columns</h2><br>
+
+						<p class="text">
+							Using ALTER command we can even add multiple new columns to any existing table. 
+						</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+								ALTER TABLE table_name ADD( <br>
+								&emsp;&emsp;column_name1 datatype1,  <br>
+								&emsp;&emsp;column-name2 datatype2,  <br>
+								&emsp;&emsp;column-name3 datatype3); <br>
+							</div>
+						</div>
+
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								ALTER TABLE student ADD( <br>
+							    &emsp;&emsp;father_name VARCHAR(60),  <br>
+							    &emsp;&emsp;mother_name VARCHAR(60),  <br>
+							    &emsp;&emsp;dob DATE);  <br>
+								
+							</div>
+						</div>
+						<p class="text">
+							The above command will add three new columns to the student table
+						</p>
+
+						<br><hr><br>
+
+
+						<h2 class="heading7">Modify an existing Column</h2><br>
+
+						<p class="text">
+							ALTER command can also be used to modify data type of any existing column. 
+						</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									ALTER TABLE table_name modify( <br>
+									   &emsp;&emsp;column_name datatype <br>
+									); <br>
+							</div>
+						</div>
+
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								ALTER TABLE student MODIFY( <br>
+	    						&emsp;&emsp;address varchar(300)); <br> 
+							</div>
+						</div>
+						<p class="text">
+							Remember we added a new column address in the beginning? The above command will modify the address column of the student table, to now hold upto 300 characters.
+						</p>
+
+						<br><hr><br>
+
+
+						<h2 class="heading7"> Rename a Column</h2><br>
+
+						<p class="text">
+							Using ALTER command you can rename an existing column.
+						</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									ALTER TABLE table_name RENAME  <br>
+	    							&emsp;&emsp;old_column_name TO new_column_name; <br>
+							</div>
+						</div>
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								ALTER TABLE student RENAME <br>
+	    						&emsp;&emsp;address TO location; <br>
+							</div>
+						</div>
+						<p class="text">
+							The above command will rename address column to location.
+						</p>
+
+						<br><hr><br>
+
+
+
+						<h2 class="heading7">Drop a Column</h2><br>
+
+						<p class="text">
+							ALTER command can also be used to drop or remove columns.
+						</p>
+
+						<div class="syntax">	
+							<h2 class="heading-style">	Syntax</h2>
+							<div class="content-format">	
+									ALTER TABLE table_name DROP( <br>
+	  								  &emsp;&emsp;column_name); <br>
+							</div>
+							
+						</div>
+						<div class="example">
+							<h2 class="heading-style">Example</h2>
+							<div class="content-format">
+								ALTER TABLE student DROP( <br>
+	    						&emsp;&emsp;address);  <br>
+							</div>
+						</div>
+						<p class="text">
+							The above command will drop the address column from the table student.
+						</p>
+
+						<br><hr>
+
+						<a href="#top" class="up-nav">Back to top</a>	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

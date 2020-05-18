@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SQLHub - DML	</title>
+
+	<!-- logo -->
+    <link rel="shortcut icon" type="image/png" href="dbimg.png">
+
+	<!-- Stylesheet -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+    <style>
+		.main-page{
+			width:100%;
+			height:1080vh;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="navbar" id="top">
+		<img src="dbimg.png" alt="" class="logo" height="50px" width="50px" class="navelements">
+		<ul class="topics">
+			<a href="#"><li class="navelements active">DML</li></a>
+			<a href="DDL.html"><li class="navelements ">DDL</li></a>
+			<a href="index.html"><li class="navelements">Home</li></a>
+		</ul>
+	</div>
+	<div class="main-page">
+		<div class="subtopics">
+			<ul>
+				<a href="#DDL"><li class="subtopic">DML DEFINITION</li></a>
+				<a href="#commands"><li class="subtopic">DML COMMANDS </li></a>
+				<a href="#insert"><li class="subtopic">INSERT command</li></a>
+				<a href="#Delete"><li class="subtopic">DELETE command</li></a>
+				<a href="#update"><li class="subtopic">UPDATE command</li></a>	
+			</ul>
+		</div>
+
+		<div class="contents">		
+			<h1 class="heading3" id=DDL>DATA MANIPULATION LANGUAGE </h1>
+			<div class="text-content">
+					The SQL commands that deals with the manipulation of data present in the database belong to DML or Data Manipulation Language and this includes most of the SQL statements.Data Manipulation Language (DML) statements are used for managing data in database. DML commands are not auto-committed. It means changes made by DML command are not permanent to database, it can be rolled back.
+					<br><br>
+					Here are some commands that come under DML:
+					<ul>
+						<li class="list-items">INSERT</li>
+						<li class="list-items">DELETE</li>
+						<li class="list-items">UPDATE</li>
+					</ul>
+					<br>
+					<h1 class="heading4" id="commands">DML Commands</h1>
+					<hr>
+
+					<h2 class="heading5" id="insert">1.INSERT</h2>	
+					<p class="text">INSERT command is used to insert data in the table .</p>
+
+					<div class="syntax">	
+						<h2 class="heading-style">	Syntax</h2>
+						<div class="content-format">	
+								INSERT INTO table_name VALUES(data1, data2, ...);
+						</div>
+						
+					</div>
+
+					<div class="example">
+						<h2 class="heading-style">Example</h2>
+						<p class="text">
+							Consider a table student with the following fields.
+						</p>
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+							</tr>
+						</table>
+
+						<div class="content-format">
+							INSERT INTO student VALUES(101, 'Raghav', 15);
+						</div>
+						<p class="text">
+							The above command will insert a new record into student table.
+						</p>
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+							</tr>
+							<tr>
+								<td>101</td>
+								<td>Raghav</td>
+								<td>15</td>
+							</tr>
+						</table>
+					</div>			
+
+					<br><hr>
+
+					<h3 class="heading7">Insert value into only specific columns</h3>
+
+					<p class="text">We can use the INSERT command to insert values for only some specific columns of a row. We can specify the column names along with the values to be inserted</p>
+
+					<div class="syntax">	
+						<h2 class="heading-style">	Syntax</h2>
+						<div class="content-format">	
+								INSERT INTO table_name(column1, column2, ...) VALUES(value1, value2, ...);
+						</div>
+						<p class="text1">
+							<b>table_name:</b>  name of the table.  <br>
+							<b>column1:</b>  name of first column, second column …  <br>
+							<b>value1, value2, value3 :</b>  value of first column, second column,… for the new record <br>
+						</p>
+					</div>
+
+					<div class="example">
+						<h2 class="heading-style">Example</h2>
+						<p class="text1">Consider the following table Student,</p>
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Raghav</td>
+								<td>17</td>
+								<td>16-jan-2002</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Suresh</td>
+								<td>16</td>
+								<td>23-nov-2001</td>
+							</tr>
+						</table>
+
+						<div class="content-format">
+							INSERT INTO Student (St_id, Name, DOB) VALUES ('5' , 'PRATIK' , '12-jan-2000');
+						</div>
+						<p class="text">
+							After executing the following command it will insert a record in the Student table in the specified column.Here in this example the data was enetered into the 'St-id', 'Name' and 'DOB' columns and the remaining column was empty.
+						</p>
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Raghav</td>
+								<td>17</td>
+								<td>16-jan-2002</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Suresh</td>
+								<td>16</td>
+								<td>23-nov-2001</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>PRATIK</td>
+								<td>NULL</td>
+								<td>12-jan-2000</td>
+							</tr>
+						</table>
+					</div>			
+					
+
+					<br><hr>
+
+					<h3 class="heading7">Insert NULL value to a column</h3>
+
+					<p class="text">NULL value can be inserted into a table in two ways.They are:</p>
+					<h2 class="heading-style">Example</h2>
+					<div class="syntax">	
+						<div class="content-format">	
+								INSERT INTO Student(St_id, name) VALUES(10, 'Atharva');
+						</div>
+						<p class="text">The above command will insert only two column values and the other column is set to null.</p>
+					</div>
+					<p class="text">OR,</p>
+					<div class="syntax">	
+						<div class="content-format">	
+								INSERT INTO Student VALUES(10,'Atharva', null, null);
+						</div>
+					</div>
+
+					<div class="example">
+						<h2 class="heading-style">Output:</h2>
+						
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Raghav</td>
+								<td>17</td>
+								<td>16-jan-2002</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>PRATIK</td>
+								<td>NULL </td>
+								<td>12-jan-2000</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>Atharva</td>
+								<td>NULL </td>
+								<td>NULL </td>
+							</tr>
+						</table>
+						<p class="text">
+							The NULL value are inserted in the places where the value is set as NULL or in the other method where the specific column is not specified that column is set as NULL.
+						</p>
+					</div>	
+
+					<br><hr>
+
+					<h3 class="heading7">Insert Default value to a column</h3>		
+
+					<p class="text">Default value can be inserted into a table as shown,</p>
+					<p class="text1">Suppose the column age in our tabel has a default value of 20.</p>
+					<div class="syntax">	
+						<div class="content-format">	
+								INSERT INTO Student VALUES(103,'Nisha', default, '13-feb-2000')
+						</div>
+					</div>
+					<p class="text">Also, if you run the below query, it will insert default value into the age column, whatever the default value may be.</p>
+					<div class="syntax">	
+						<div class="content-format">	
+								INSERT INTO Student(St_id, Name, DOB) VALUES(103 ,'Nisha', '13-feb-2000' )
+						</div>
+					</div>
+
+					<div class="example">
+						<h2 class="heading-style">Output:</h2>
+						
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>101</td>
+								<td>Raghav</td>
+								<td>17</td>
+								<td>16-jan-2002</td>
+							</tr>
+							<tr>
+								<td>102</td>
+								<td>PRATIK</td>
+								<td>NULL </td>
+								<td>12-jan-2000</td>
+							</tr>
+							<tr>
+								<td>103</td>
+								<td>Nisha</td>
+								<td>20</td>
+								<td>13-feb-2000 </td>
+							</tr>
+						</table>
+					</div>	
+
+					<br><hr>
+
+
+
+					<h2 class="heading5" id="Delete">2.DELETE</h2>	
+					<p class="text">DELETE command is used to delete data from a table.</p>
+
+					<div class="syntax">	
+						<h2 class="heading-style">	Syntax</h2>
+						<div class="content-format">	
+								DELETE FROM table_name;
+						</div>
+					</div>
+					<p class="text">Let's take a sample table student:</p>
+					<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>101</td>
+								<td>Rajiv</td>
+								<td>18</td>
+								<td>16-jan-2002</td>
+							</tr>
+							<tr>
+								<td>102</td>
+								<td>Akash</td>
+								<td>20 </td>
+								<td>12-jan-2000</td>
+							</tr>
+							<tr>
+								<td>103</td>
+								<td>Nitin</td>
+								<td>20</td>
+								<td>23-dec-2000 </td>
+							</tr>
+					</table>
+
+					<br><hr>
+
+						<h3 class="heading7">Delete all Records from a Table</h3>
+
+						<div class="content-format">	
+								DELETE FROM Student;
+						</div>
+
+						<p class="text1">The above command will delete all the records from the table student.</p>
+
+						<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td> &emsp;</td>
+								<td> </td>
+								<td></td>
+								<td> </td>
+							</tr>
+						</table>
+
+						<br><hr>
+
+
+						<h3 class="heading7">Delete a particular Record from a Table</h3>
+
+						<p class="text">In our student table if we want to delete a single record, we can use the WHERE clause to provide a condition in our DELETE statement.</p>
+
+					<div class="example">
+						<div class="content-format">
+							DELETE FROM student WHERE St_id=103;
+						</div>
+						<p class="text">The above command will delete the record where St_id is 103 from the table student</p>	
+					</div>
+					<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>101</td>
+								<td>Rajiv</td>
+								<td>18</td>
+								<td>16-jan-2002</td>
+							</tr>
+							<tr>
+								<td>102</td>
+								<td>Akash</td>
+								<td>20 </td>
+								<td>12-jan-2000</td>
+							</tr>
+					</table>
+
+					<br><hr>
+
+					<h3 class="headinh7">Delete multiple Records from a Table</h3>
+
+					<p class="text">In our student table if we want to delete a multiple record, we can use the WHERE clause to provide a condition in our DELETE statement.</p>
+
+					<div class="example">
+						<div class="content-format">
+							DELETE FROM student WHERE age=20;
+						</div>
+						<p class="text">The above command will delete the records where age are 20 from the table student</p>	
+					</div>
+					<table class="table-border">
+							<tr>
+								<th>St_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>DOB</th>
+							</tr>
+							<tr>
+								<td>101</td>
+								<td>Rajiv</td>
+								<td>18</td>
+								<td>16-jan-2002</td>
+							</tr>
+					</table>
+
+
+					<br><hr><br>
+
+					<h2 class="heading5" id="update">3.UPDATE</h2>	
+					<p class="text">UPDATE command is used to update any record of data in a table.
+						 We can update single columns as well as multiple columns using UPDATE statement as per our requirement.</p>
+
+					<div class="syntax">	
+						<h2 class="heading-style">General Syntax</h2>
+						<div class="content-format">	
+								UPDATE table_name SET column_name = new_value WHERE some_condition;
+						</div>
+						<p class="text">
+							<b>table_name :</b> name of the table where you want to make changes. <br>
+							<b>column_name :</b> name of the column where you want modify. <br>
+							<b>new_value :</b> new value of that you want to insert or change. <br>
+							<b>some_condition :</b> any condition based on which you want to make change. <br>
+							WHERE is used to add a condition to any SQL query. <br><br>
+						</p> 
+					</div>
+
+					<div class="example">
+						<p class="text">
+							Consider the table Customer,
+						</p>
+
+						<table class="table-border">
+							<tr>
+								<th>Cust_id</th>
+								<th>Name</th>
+								<th>age</th>
+								<th>Registration_date</th>
+							</tr>
+							<tr>
+								<td>1001</td>
+								<td>Sanjay</td>
+								<td>30</td>
+								<td>16-aug-1990</td>
+							</tr>
+							<tr>
+								<td>1002</td>
+								<td>Nilesh</td>
+								<td>23 </td>
+								<td>19-june-1995</td>
+							</tr>
+							<tr>
+								<td>1003</td>
+								<td>Namrata</td>
+								<td>28</td>
+								<td>23-dec-1992 </td>
+							</tr>
+						</table>							
+					</div>
+
+					<br><hr>
+
+
+					<h3 class="heading7">Update a particular Record from a Table</h3>
+
+					<div class="content-format">
+						UPDATE Customer SET age=25 WHERE Cust_id=1002;	
+					</div>
+					<table class="table-border">
+						<tr>
+							<th>Cust_id</th>
+							<th>Name</th>
+							<th>age</th>
+							<th>Registration_date</th>
+						</tr>
+						<tr>
+							<td>1001</td>
+							<td>Sanjay</td>
+							<td>30</td>
+							<td>16-aug-1990</td>
+						</tr>
+						<tr>
+							<td>1002</td>
+							<td>Nilesh</td>
+							<td>25 </td>
+							<td>19-june-1995</td>
+						</tr>
+						<tr>
+							<td>1003</td>
+							<td>Namrata</td>
+							<td>28</td>
+							<td>23-dec-1992 </td>
+						</tr>
+					</table>
+
+					<p class="text">In the above statement, if we do not use the WHERE clause, then our update query will update age for all the columns of the table to 25.</p>	
+
+					<br><hr>
+
+					<h3 class="heading7">Updating Multiple Columns</h3>
+
+					<p class="text">We can also update values of multiple columns using a single UPDATE statement.</p>
+
+					<div class="content-format">
+						UPDATE Customer SET Name='Abhi', age=23 where Cust_id=1001; 
+					</div>
+					<table class="table-border">
+						<tr>
+							<th>Cust_id</th>
+							<th>Name</th>
+							<th>age</th>
+							<th>Registration_date</th>
+						</tr>
+						<tr>
+							<td>1001</td>
+							<td>Abhi</td>
+							<td>23</td>
+							<td>16-aug-1990</td>
+						</tr>
+						<tr>
+							<td>1002</td>
+							<td>Nilesh</td>
+							<td>25 </td>
+							<td>19-june-1995</td>
+						</tr>
+						<tr>
+							<td>1003</td>
+							<td>Namrata</td>
+							<td>28</td>
+							<td>23-dec-1992 </td>
+						</tr>
+					</table>
+
+					<p class="text">The above command will update two columns of the record which has Cust_id 1001.</p>	
+
+				<br><hr><br>
+
+				<a href="#top" class="up-nav">Back to top</a>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>
